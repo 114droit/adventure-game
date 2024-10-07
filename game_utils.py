@@ -1,4 +1,5 @@
 import time
+
 # Definieren der Funktion zum Beschreiben des aktuellen Raumes/
 def enter_room(room):
     print(f"\n----------{room['name']}----------")
