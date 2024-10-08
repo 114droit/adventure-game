@@ -1,18 +1,18 @@
-import time
+import time                                                                                          # Importieren der globalen Funktion time
 
-from game_utils import enter_room, solve_riddle, end_game
+from game_utils import enter_room, solve_riddle, end_game                                            # Importieren der Funktionen enter_room, solve_riddle und end_game from game_utils.py
 
 # Definieren der Funktion zum Begrüßen/Erklären der Spielregeln
 def greeting():
-    print("Hello, new Player! This is a text-based adventure game.")
+    print("Hello, new Player! This is a text-based adventure game.")                                 # Begrüßung ausgeben
     time.sleep(2)
-    print("\nJust read what's written on the screen and solve the riddles you will encounter!")
+    print("\nJust read what's written on the screen and solve the riddles you will encounter!")      # Erklärung ausgeben
 
 # Definieren der Main-Funktion
 def main ():
-    greeting()
-    time.sleep(3)
-    rooms = [
+    greeting()                                                                                       # Begrüßung/Erklärung aufrufen
+    time.sleep(3)                                                                                    # 3 Sekunden warten
+    rooms = [                                                                                        # Eine Liste, in der alle Räume und ihre Merkmale/Ereignisse definiert sind
         {
             'name':"Entrance Hall",
             'description':"You're standing inside a huge Hall. You can see a dim torch close to a trapdoor on the bottom of the floor in front of you.",
@@ -50,14 +50,14 @@ def main ():
             'response':"Congratulations! You found the treasure...or not?"
         }
     ]
-    current_room = 0
-    while current_room < len(rooms):
-        room = rooms[current_room]
-        enter_room(room)
-        time.sleep(6)
-        solve_riddle(room)
-        time.sleep(4)
-        current_room += 1
-    end_game()
-if __name__ == "__main__":
+    current_room = 0                                                                                  # definiere 'lauf'-variable current_room mit wert 0
+    while current_room < len(rooms):                                                                  # tu etwas solange der wert von current_room kleiner ist, als die Anzahl der Objekte in rooms (Länge der Liste)
+        room = rooms[current_room]                                                                    # definiere eine variable room als das Objekt aus der Liste rooms mit Index current_room. Das 1. hat Index 0 usw.
+        enter_room(room)                                                                              # aufrufen der enter_room() Funktion mit der Variable room als parameter
+        time.sleep(6)                                                                                 # 6 sekunden warten
+        solve_riddle(room)                                                                            # aufrufen der solve_riddle Funktion mit der variable room als parameter
+        time.sleep(4)                                                                                 # 4 sekunden warten
+        current_room += 1                                                                             # addiere 1 zum wert von current_room
+    end_game()                                                                                        # aufrufen der end_game() funktion
+if __name__ == "__main__":                                                                            # autostart main funktion
     main()
